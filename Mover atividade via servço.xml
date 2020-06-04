@@ -5,6 +5,9 @@
 
 	Para essa atividade duas informações são necessárias, o número da atividade de destino,
 	ou seja, para qual atividade o fluxo deve seguir e o numero da solicitação.
+
+	https://[FLUIG]/webdesk/ECMWorkflowEngineService?wsdl
+
 -->
 
 
