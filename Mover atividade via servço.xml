@@ -32,3 +32,30 @@
 		</ws:saveAndSendTask>
 	</soapenv:Body>
 </soapenv:Envelope>
+
+
+<!-- O retorno, quando executando com sucesso, vai ser algo semelhante ao exemplo a abixo -->
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <ns1:saveAndSendTaskResponse xmlns:ns1="http://ws.workflow.ecm.technology.totvs.com/">
+         <result>
+            <item>
+               <item>WDNrDocto</item>
+               <item>177672</item>
+            </item>
+            <item>
+               <item>iTask</item>
+               <item>14</item>
+            </item>
+            <item>
+               <item>cDestino</item>
+               <item>[Pool:Group:verIntegracao]</item>
+            </item>
+            <item>
+               <item>WDNrVersao</item>
+               <item>3000</item>
+            </item>
+         </result>
+      </ns1:saveAndSendTaskResponse>
+   </soap:Body>
+</soap:Envelope>
