@@ -1,0 +1,31 @@
+<!-- 
+	Movendo atividades com o ECMWorkflowEngineService via XML.
+	Geralmente usado para mover processo que travam na atividade de integração e
+	não é possível mover pela página da solicitação.
+
+	Para essa atividade duas informações são necessárias, o número da atividade de destino,
+	ou seja, para qual atividade o fluxo deve seguir e o numero da solicitação.
+-->
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.workflow.ecm.technology.totvs.com/">
+	<soapenv:Header/>
+	<soapenv:Body>
+		<ws:saveAndSendTask>
+			<username>USUARIO</username> <!-- Usuário para autenticação -->
+			<password>SENHA</password> <!-- Senha para autenticação -->
+			<companyId>1</companyId> <!-- ID da empresa no Fluig -->
+			<processInstanceId>67976</processInstanceId> <!-- Número da solicitação -->
+			<choosedState>14</choosedState> <!-- Atividade de destino, é necessário olhar no fluxo -->
+			<colleagueIds></colleagueIds>  
+			<comments>Atividade movida via serviço</comments>  <!-- Comentário -->
+			<userId>USUARIO</userId> <!-- Usuário que vai mover, repete aut. -->
+			<completeTask>true</completeTask>  <!-- Completa tarefa? Se marcar 'false' iria apenas salvar -->
+			<managerMode>true</managerMode>  <!-- Modo administrador, true se estiver com usuário "Syste:Auto" -->
+			<threadSequence></threadSequence>
+			<attachments></attachments>
+			<cardData></cardData>
+			<appointment></appointment>
+		</ws:saveAndSendTask>
+	</soapenv:Body>
+</soapenv:Envelope>
