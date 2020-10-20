@@ -1,0 +1,1050 @@
+<html>
+<head>
+	<meta  charset="utf-8">
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="custom.js"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<link type="text/css" rel="stylesheet" href="custom.css"/> 
+	<script type="text/javascript" src="js/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.js"></script>
+</head>
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+			<input type="hidden" id="contractFolderId" name="contractFolderId">
+			<input type="hidden" id="idAnexo" name="idAnexo">
+			<input type="hidden" id="versaoAnexo" name="versaoAnexo">
+			<input type="hidden" id="usrSolicitante" name="usrSolicitante">
+			<input type="hidden" id="usrAprovador" name="usraprovador">
+			<input type="hidden" id="SolPrincipalAditivo" name="SolPrincipalAditivo">
+			<input type="hidden" id="dataSolicitacao" name="dataSolcitacao">
+			<input type="hidden" id="nomeDoAprovador" name="nomeDoAprovador">
+			<input type="hidden" id="ultimoUsuario" name="ultimoUsuario">
+			<input type="hidden" name="hdnJsonRevisao" id="hdnJsonRevisao">
+			<input type="hidden" name="hdnJsonRevisaoAnexo" id="hdnJsonRevisaoAnexo">
+			<input type="hidden" name="aprovJudiciario" id="aprovJudiciario">
+			<input type="hidden" name="hdnJsonHistJuridico" id="hdnJsonHistJuridico">
+			<input type="hidden" name="hdnJsonHistSuperior" id="hdnJsonHistSuperior">
+			<input type="hidden" name="hdnJsonHistCS" id="hdnJsonHistCS">
+			<input type="hidden" name="hdnJsonHistLog" id="hdnJsonHistLog">
+			<input type="hidden" name="hdnJsonHistFin" id="hdnJsonHistFin">
+			<input type="hidden" name="hdnJsonHistFiscal" id="hdnJsonHistFiscal">
+			<input type="hidden" name="hdnJsonHistECommerce" id="hdnJsonHistECommerce">
+			<input type="hidden" name="relacaoDePartes" id="relacaoDePartes">
+			<div class="container">
+				<div class="page-header text-center" id="status">
+					<input type="hidden" id="idStatus" name="idStatus">
+					<input type="hidden" id="descStatus" name="descStatus">
+				</div>
+				<div id="formContrato">
+					<div class="row">
+						<div class="col-md-2 form-group">
+							<label for="numSolicitacao">Nº solicitação</label>	
+							<input type="text" name="numSolicitacao" id="numSolicitacao" class="form-control" readonly>
+						</div>
+						<div class="col-md-4 form-group">
+							<label for="areaSol">Área solicitante</label>	
+							<select name="areaSol" id="areaSol" class="form-control"></select>
+						</div>
+						<div class="col-md-6 form-group">
+							<label for="">Nome do solicitante</label>	
+							<input type="text" name="nomeSolicitante" id="nomeSolicitante" class="form-control" readonly>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<legend>Partes</legend>
+							<p id="explicativoPartes"></p>
+								<button class="btn btn-primary" id="btnAddPapel" onclick="adicionaPapeis();"><i class="fluigicon fluigicon-plus icon-xs"></i> Adicionar Partes</button>
+						</div>
+						<div class="col-md-12 radioEmpresasTeste cnpjTeste" id="radioEmpresasTeste">
+							
+						</div>
+						<div class="col-md-12" id="partes">
+							<table tablename="tbOutrasPartes" id="tbOutrasPartes" class="table table-responsive" noaddbutton=true nodeletebutton=true>
+								<thead>
+									<tr>
+										<th>Razão social</th>
+										<th>CNPJ</th>
+										<th>Parte</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><input type="text" name="razaoSocial" id="razaoSocial" class="form-control"></td>
+										<td><input type="text" name="cnpjPapel" id="cnpjPapel" class="form-control cnpj" placeholder="___.___.___/____-__"></td>
+										<td>
+											<select name="tipoParte" id="tipoParte" class="form-control"></select>
+										</td>
+										<td><button class="btn btn-danger btnRmvParte" id="btnRmvParte" onclick="fnWdkRemoveChild(this);"><i class="fluigicon fluigicon-trash icon-sm"></i></button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-12 form-group">
+							<label for="">Objeto</label>
+							<textarea type="text" id="objeto" name="objeto" class="form-control" ></textarea>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<label for="tipoDoc">Tipo de contrato</label>
+							<select name="tipoDoc" id="tipoDoc" class="form-control"></select>
+							<input type="hidden" id="idTipoDoc" name="idTipoDoc">
+						</div>
+						<div class="col-md-6 form-group">
+							<label for="minutaPadrao">Minuta padrão</label>
+							<select name="minutaPadrao" id="minutaPadrao" class="form-control">
+								<option selected disabled>Selecione um item</option>
+								<option value="1">Sim</option>
+								<option value="0">Não</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<label for="minutaPadrao">Tipo de documento</label>
+							<div class="custom-radio custom-radio-primary">
+							    <input type="radio" name="tipoDocumento" value="contrato" id="contrato">
+							    <label for="contrato">Contrato</label>
+							</div>
+							<div class="custom-radio custom-radio-primary">
+							    <input type="radio" name="tipoDocumento" value="aditivo" id="aditivo">
+							    <label for="aditivo">Aditivo</label>
+							</div>
+							<div class="custom-radio custom-radio-primary">
+							    <input type="radio" name="tipoDocumento" value="distrato" id="distrato">
+							    <label for="distrato">Distrato</label>
+							</div>
+							<div class="custom-radio custom-radio-primary">
+							    <input type="radio" name="tipoDocumento" value="notificacao" id="notificacao">
+							    <label for="notificacao">Notificação</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<legend>Prazo de Vigência</legend>
+						</div>
+						<div class="col-md-6 form-group">
+							<label for="">Data Início</label>
+							<input type="text" id="dataInicio" name="dataInicio" class="form-control date" placeholder="__/__/____">
+						</div>
+						<div class="col-md-6 form-group">
+							<label for="">Data Término</label>
+							<input type="text" id="dataTermino" name="dataTermino" class="form-control date" placeholder="__/__/____">
+							<p id="prazoIndeterminado">Prazo indeterminado? <input type="checkbox" id="indeterminado" name="indeterminado"></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<legend>Dados do contrato</legend>
+						</div>
+						<div class="col-md-2 form-group">
+							<label for="moeda">Moeda</label>
+							<select type="text" id="moedaValorMes" name="moedaValorMes" class="form-control">
+							</select>
+						</div>
+						<div class="col-md-5 form-group">
+							<label for="">Valor Mensal</label>
+							<input type="text" id="valorMensal" name="valorMensal" class="form-control" mask="#.##9,99" >
+						</div>
+						<div class="col-md-5 form-group">
+							<label for="">Valor Total</label>
+							<input type="text" id="valorTotal" name="valorTotal" class="form-control" mask="#.##9,99" >
+						</div>
+					</div>
+					<div class="row" id="divtipoCusto">
+						<div class="col-md-3 mb-3">
+							<label for="tipoCusto">Tipo de Custo</label>
+							<div class="custom-radio custom-radio-primary">
+								<input type="radio" name="tipoCusto" value="Fixo" id="Fixo">
+								<label for="Fixo">Custo Fixo</label>
+							</div>
+							<div class="custom-radio custom-radio-primary">
+								<input type="radio" name="tipoCusto" value="Variável" id="Variável">
+								<label for="Variável">Custo Variável</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<label for="Prazo e Forma de Pagamento">Prazo e Forma de Pagamento</label>
+							<input type="text" id="formaPagamento" name="formaPagamento" class="form-control" >
+						</div>					
+					</div>
+					<div class="row">
+						<div class="col-md-12 form-group">
+							<label for="">Observações</label>
+							<textarea type="text" id="observacoes" name="observacoes" class="form-control" ></textarea>
+						</div>	
+					</div>
+				</div>
+				<hr style="border: none;">
+				<!-- Fim Lista de Anexos -->
+				<!-- Inicio analise solicitante-->
+				<div class="row" id="divAnaliseSuperior">
+					<div class="col-md-12">
+						<legend>Aprovação Superior imediato</legend>
+						<div id="aprovSuperiorDiv" class='row'>
+							<div class="col-md-3">
+								<label for="aprovSuperior">Aprova solicitação?</label>
+								<div class='form-group'>
+									<select class="form-control" name="aprovSuperior" id="aprovSuperior">
+										<option selected disabled>Selecione um item</option>
+										<option value="sim">Aprovar</option>
+										<option value="corrigir">Corrigir</option>
+										<option value="nao">Reprovar</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-9">
+								<div class='form-group' id='aprovSuperiorObsdiv'>
+									<label for="aprovSuperiorObs">Observações</label>
+									<textarea id="aprovSuperiorObs" class="form-control" name="aprovSuperiorObs"></textarea>
+									</br>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Fim analise solicitante-->
+				<!-- Envio Áreas -->
+				<div class="row" id="envioAreas" >					
+					<div class="col-xs-12">
+						<legend>Aprovação Jurídico</legend>
+						
+						<div class="col-md-3">
+							<label for="aprovJuridico">Aprova solicitação?</label>
+							<select class="form-control" id="aprovJuridico" name="aprovJuridico">
+								<option>Selecione um item</option>
+								<option value="sim">Aprovar</option>
+								<option value="nao">Corrigir</option>
+							</select>
+						</div>						
+						<div class="col-md-9" id="divAreasAnalise" style="display:none;">
+							<p>Marque as áreas que devem realizar a aprovação do contrato.</p>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" name="areaECommerce" id="areaECommerce">
+								<label class="custom-control-label" for="areaECommerce">Atendimento e-commerce</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" name="areaFinancas" id="areaFinancas">
+								<label class="custom-control-label" for="areaFinancas">Financeiro</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" name="areaFiscal" id="areaFiscal">
+								<label class="custom-control-label" for="areaFiscal">Fiscal</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" name="areaCustomer" id="areaCustomer">
+								<label class="custom-control-label" for="areaCustomer">Customer Service</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" name="areaLogistica" id="areaLogistica">
+								<label class="custom-control-label" for="areaLogistica">Logística</label>
+							</div>
+							<!--<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" name="areaSolicitante" id="areaSolicitante">
+								<label class="custom-control-label" for="areaSolicitante">Solicitante</label>
+							</div>-->
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" name="semAnalise" id="semAnalise">
+								<label class="custom-control-label" for="semAnalise">Não será necessária análise</label>
+							</div>
+						</div>
+						<div class="col-md-9" id="divObsJuridico" style="display:none;">
+							<label for="obsJuridico">Informe o motivo da correção</label>
+							<textarea class="form-control" name="obsJuridico" id="obsJuridico"></textarea>
+						</div>
+					</div>
+				</div>	
+				<!-- Fim Envio Áreas -->
+				<!-- analise Customer Service - CS -->
+				<div class="row" id="divAnaliseCS">
+					<div class="col-md-12">
+						<legend>Análise Customer Service</legend>
+						<div id="aprovCSDiv" class='row'>
+							<div class="col-md-3" id="divHistAprovCS1">
+								<label for="aprovCS">Aprova contrato?</label>
+								<div class='form-group'>
+									<select class="form-control selectAprov" name="aprovCS" id="aprovCS">
+										<option selected disabled>Selecione um item</option>
+										<option value="sim">Aprovar</option>
+										<option value="nao">Corrigir</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 selectDestino"  style="display: none;">
+								<label for="destCS">Destinatario</label>
+								<div class='form-group'>
+									<select class="form-control " name="destCS" id="destCS">
+										<option selected disabled>Selecione um item</option>
+										<option value="sol">Solicitante</option>
+										<option value="jur">Jurídico</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6" id="divHistAprovCS2">
+								<div class='form-group' id='aprovCSObsdiv'>
+									<label for="aprovCSObs">Observações</label>
+									<textarea id="aprovCSObs" class="form-control" name="aprovCSObs"></textarea>
+									</br>
+								</div>
+							</div>
+							<div class="col-xs-12">
+								<div class="panel-group" id="analiseHistCS">
+								    <div class="panel panel-default">
+								        <div class="panel-heading">
+								            <h4 class="panel-title">
+								                <a class="collapse-icon up" data-toggle="collapse" data-parent="#analiseHistCS" href="#collapseCS">
+								                Histórico de mensagens
+								                </a>
+								            </h4>
+								        </div>
+								        <div id="collapseCS" class="panel-collapse collapse">
+								            <div class="panel-body" id="conteudoHistCS">
+								            </div>
+								        </div>
+								    </div>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="row" id="divRevisaoCS">
+					<div class="col-xs-12">						
+						<legend>Revisão Customer Service</legend>
+						<div>
+							<div class="alert alert-warning alert-dismissible" role="alert">
+								<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+								Favor verificar o questionamento dos revisores do contrato no Histórico de mensagens e responder no campo 'observação'.
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<label for="observRevisaoCS">Observação</label>
+								<textarea name="observRevisaoCS" id="observRevisaoCS" class="form-control"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Fim analise Customer Service - CS -->
+							
+				<!-- analise Atendimento E-Commerce -->
+				<div class="row" id="divAnaliseECommerce">
+					<div class="col-md-12">
+						<legend>Análise Atendimento E-Commerce</legend>
+						<div id="aprovECommerceDiv" class='row'>
+							<div class="col-md-3" id="divHistAprovECommerce1">
+								<label for="aprovECommerce">Aprova contrato?</label>
+								<div class='form-group'>
+									<select class="form-control selectAprov" name="aprovECommerce" id="aprovECommerce">
+										<option selected disabled>Selecione um item</option>
+										<option value="sim">Aprovar</option>
+										<option value="nao">Corrigir</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 selectDestino"  style="display: none;">
+								<label for="destECommerce">Destinatario</label>
+								<div class='form-group'>
+									<select class="form-control " name="destECommerce" id="destECommerce">
+										<option selected disabled>Selecione um item</option>
+										<option value="sol">Solicitante</option>
+										<option value="jur">Jurídico</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6" id="divHistAprovECommerce2">
+								<div class='form-group' id='aprovECommerceObsdiv'>
+									<label for="aprovECommerceObs">Observações</label>
+									<textarea id="aprovECommerceObs" class="form-control" name="aprovECommerceObs"></textarea>
+									</br>
+								</div>
+							</div>
+							<div class="col-xs-12">
+								<div class="panel-group" id="analiseHistECommerce">
+								    <div class="panel panel-default">
+								        <div class="panel-heading">
+								            <h4 class="panel-title">
+								                <a class="collapse-icon up" data-toggle="collapse" data-parent="#analiseHistECommerce" href="#collapseECommerce">
+								                Histórico de mensagens
+								                </a>
+								            </h4>
+								        </div>
+								        <div id="collapseECommerce" class="panel-collapse collapse">
+								            <div class="panel-body" id="conteudoHistECommerce">
+								            </div>
+								        </div>
+								    </div>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="row" id="divRevisaoECommerce">
+					<div class="col-xs-12">
+						<legend>Revisão Atendimento E-Commerce</legend>
+						<div>
+							<div class="alert alert-warning alert-dismissible" role="alert">
+								<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+								Favor verificar o questionamento dos revisores do contrato no Histórico de mensagens e responder no campo 'observação'.
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<label for="observRevisaoECommerce">Observação</label>
+								<textarea name="observRevisaoECommerce" id="observRevisaoECommerce" class="form-control"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Fim analise Atendimento E-Commerce -->
+
+				<!-- analise logistica -->
+				<div class="row" id="divAnaliseLog">
+					<div class="col-md-12">
+						<legend>Análise Logística</legend>
+						<div id="aprovLogDiv" class='row'>
+							<div class="col-md-3" id="divHistAprovLog1">
+								<label for="aprovLog">Aprova contrato?</label>
+								<div class='form-group'>
+									<select class="form-control selectAprov" name="aprovLog" id="aprovLog">
+										<option selected disabled>Selecione um item</option>
+										<option value="sim">Aprovar</option>
+										<option value="nao">Corrigir</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 selectDestino" style="display: none;">
+								<label for="destLog">Destinatario</label>
+								<div class='form-group'>
+									<select class="form-control" name="destLog" id="destLog">
+										<option selected disabled>Selecione um item</option>
+										<option value="sol">Solicitante</option>
+										<option value="jur">Jurídico</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6" id="divHistAprovLog2">
+								<div class='form-group' id='aprovLogObsdiv'>
+									<label for="aprovLogObs">Observações</label>
+									<textarea id="aprovLogObs" class="form-control" name="aprovLogObs"></textarea>
+									</br>
+								</div>
+							</div>
+							<div class="col-xs-12">
+								<div class="panel-group" id="analiseHistLog">
+								    <div class="panel panel-default">
+								        <div class="panel-heading">
+								            <h4 class="panel-title">
+								                <a class="collapse-icon up" data-toggle="collapse" data-parent="#analiseHistLog" href="#collapseLog">
+								                Histórico de mensagens
+								                </a>
+								            </h4>
+								        </div>
+								        <div id="collapseLog" class="panel-collapse collapse">
+								            <div class="panel-body" id="conteudoHistLog">
+								            </div>
+								        </div>
+								    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="divRevisaoLog">
+					<div class="col-xs-12">
+						<legend>Revisão Logística</legend>
+						<div>
+							<div class="alert alert-warning alert-dismissible" role="alert">
+								<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+								Favor verificar o questionamento dos revisores do contrato no Histórico de mensagens e responder no campo 'observação'.
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<label for="observRevisaoLog">Observação</label>
+								<textarea name="observRevisaolog" id="observRevisaoLog" class="form-control"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Fim analise logistica -->
+
+				
+				<!-- analise Fiscal -->
+				<div class="row" id="divAnaliseFiscal">
+					<div class="col-md-12">
+						<legend>Análise Fiscal</legend>
+						<div id="aprovFiscalDiv" class='row'>
+							<div class="col-md-3" id="divHistAprovFiscal1">
+								<label for="aprovFiscal">Aprova contrato?</label>
+								<div class='form-group'>
+									<select class="form-control selectAprov" name="aprovFiscal" id="aprovFiscal">
+										<option selected disabled>Selecione um item</option>
+										<option value="sim">Aprovar</option>
+										<option value="nao">Corrigir</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 selectDestino" style="display: none;">
+								<label for="destFiscal">Destinatário</label>
+								<div class='form-group'>
+									<select class="form-control" name="destFiscal" id="destFiscal">
+										<option selected disabled>Selecione um item</option>
+										<option value="sol">Solicitante</option>
+										<option value="jur">Jurídico</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6" id="divHistAprovFiscal2">
+								<div class='form-group' id='aprovFiscalObsdiv'>
+									<label for="aprovFiscalObs">Observações</label>
+									<textarea id="aprovFiscalObs" class="form-control" name="aprovFiscalObs"></textarea>
+									</br>
+								</div>
+							</div>
+							<div class="col-xs-12">
+								<div class="panel-group" id="analiseHistFiscal">
+								    <div class="panel panel-default">
+								        <div class="panel-heading">
+								            <h4 class="panel-title">
+								                <a class="collapse-icon up" data-toggle="collapse" data-parent="#analiseHistFiscal" href="#collapseFiscal">
+								                Histórico de mensagens
+								                </a>
+								            </h4>
+								        </div>
+								        <div id="collapseFiscal" class="panel-collapse collapse">
+								            <div class="panel-body" id="conteudoHistFiscal">
+								            </div>
+								        </div>
+								    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="divRevisaoFiscal">
+					<div class="col-xs-12">
+						<legend>Revisão Fiscal</legend>
+						<div>
+							<div class="alert alert-warning alert-dismissible" role="alert">
+								<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+								Favor verificar o questionamento dos revisores do contrato no Histórico de mensagens e responder no campo 'observação'.
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<label for="observRevisaoFiscal">Observação</label>
+								<textarea name="observRevisaoFiscal" id="observRevisaoFiscal" class="form-control"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Fim analise Fiscal -->
+
+				<!-- analise financas -->
+				<div class="row" id="divAnaliseFin">
+				
+					<div class="col-md-12">
+						<legend>Análise Financeiro</legend>
+						
+						<div id="aprovFinDiv" class='row'>
+							<div class="col-md-3" id="divHistAprovFin1">
+								<label for="aprovFin">Aprova contrato?</label>
+								<div class='form-group'>
+									<select class="form-control selectAprov" name="aprovFin" id="aprovFin">
+										<option selected disabled>Selecione um item</option>
+										<option value="sim">Aprovar</option>
+										<option value="nao">Corrigir</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 selectDestino" style="display: none;">
+								<label for="destFin">Destinatário</label>
+								<div class='form-group'>
+									<select class="form-control " name="destFin" id="destFin">
+										<option selected disabled>Selecione um item</option>
+										<option value="sol">Solicitante</option>
+										<option value="jur">Jurídico</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6" id="divHistAprovFin2">
+								<div class='form-group' id='aprovFinObsdiv'>
+									<label for="aprovFinObs">Observações</label>
+									<textarea id="aprovFinObs" class="form-control" name="aprovFinObs"></textarea>
+									</br>
+								</div>
+							</div>
+							<div class="col-xs-12">
+								<div class="panel-group" id="analiseHistFin">
+								    <div class="panel panel-default">
+								        <div class="panel-heading">
+								            <h4 class="panel-title">
+								                <a class="collapse-icon up" data-toggle="collapse" data-parent="#analiseHistFin" href="#collapseFin">
+								                Histórico de mensagens
+								                </a>
+								            </h4>
+								        </div>
+								        <div id="collapseFin" class="panel-collapse collapse">
+								            <div class="panel-body" id="conteudoHistFin">
+								            </div>
+								        </div>
+								    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="divRevisaoFin">
+					<div class="col-xs-12">
+						<legend>Revisão Finanças</legend>
+						<div>
+							<div class="alert alert-warning alert-dismissible" role="alert">
+								<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+								Favor verificar o questionamento dos revisores do contrato no Histórico de mensagens e responder no campo 'observação'.
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<label for="observRevisaoFin">Observação</label>
+								<textarea name="observRevisaoFin" id="observRevisaoFin" class="form-control"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Fim analise financas -->
+
+				<!-- table -->
+
+				<div class="row" id="divConsolidacao">
+					<br>
+					<div class="col-md-12">
+						<legend>Consolidação do contrato</legend>
+					</div>
+					<div class="col-xs-12">
+						<h3>Para importar contrato consolidado clique no botão adicionar revisão do documento correspondente (contrato e anexo):</h3>
+						<br>
+						<h3>Será necessária a aprovação da outra parte?</h3>
+						<div class="custom-radio custom-radio-inline custom-radio-primary custom-radio-md">
+					        <input type="radio" name="analiseParte" value="sim" id="analiseParteSim">
+					        <label for="analiseParteSim">Sim</label>
+					    </div>
+				        <div class="custom-radio custom-radio-inline custom-radio-primary custom-radio-md">
+					        <input type="radio" name="analiseParte" value="nao" id="analiseParteNao">
+					        <label for="analiseParteNao">Não</label>
+					    </div>
+					</div>
+				</div>
+				
+				<hr style="border: none;">
+				<!-- analise solicitante-->
+				<div class="row" id="divAnaliseSol">
+					<div class="col-md-12">
+						<legend>Análise Solicitante</legend>
+
+						<div>
+							<div class="alert alert-warning alert-dismissible" role="alert">
+								<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+								Somente selecione 'aprovar' se o contrato já foi validado e assinado pelo fornecedor. Se novas alterações no contrato foram feitas pelo fornecedor, favor encaminhar o contrato ao jurídico por meio da opção 'Análise Jurídico'.
+							</div>
+						</div>
+
+						<div id="aprovSolDiv" class='row'>
+							<div class="col-md-3">
+								<label for="aprovSol">Aprova contrato?</label>
+								<div class='form-group'>
+									<select class="form-control" name="aprovSol" id="aprovSol">
+										<option selected disabled>Selecione um item</option>
+										<option value="sim">Aprovar</option>
+										<option value="nao">Análise jurídico</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-9">
+			
+								<div class='form-group' id='aprovSolObsdiv'>
+									<label for="aprovSolObs">Observações</label>
+									<textarea id="aprovSolObs" class="form-control" name="aprovSolObs"></textarea>
+									</br>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+
+				<!-- upload do contrato -->
+				<div class="row" id="divColetaAssSolicitante" style="display: none;">
+					<div class="col-md-12">
+						<legend>Coleta de Assinaturas - Solicitante</legend>
+						<p>Realize a coleta das assinaturas das partes do contrato, clique no botão enviar e encaminhe o arquivo físico para o setor jurídico</p>
+					</div>
+				</div>
+
+				<div class="row" id="divColetaAssJuridico">
+					<div class="col-md-12">
+						<legend>Coleta de Assinaturas - Jurídico</legend>
+						<div class="alert alert-success" role="alert">
+							<h4>Insira o contrato chancelado pelo jurídico e assinado pelas partes.</h4>
+						</div>
+					</div>
+					<!-- <div class="col-md-12">
+						<h3>importar contrato assinado:</h3>
+						<a class="file-input-wrapper btn btn-success">
+							<span><i class="fluigicon fluigicon-upload icon-xs"></i> Importar</span>
+							<input 
+								id="btnAddContratoAssJur" 
+								type="file" 
+								name="btnAddContratoAssJur" 
+								data-url="/ecm/upload"
+								class="btn btn-primary btn-sm btn-block "
+								title="Adicionar Anexos(s)"
+							/>
+						</a>
+						<input type="hidden" name="hdnIdContrAssJur" id="hdnIdContrAssJur">
+					</div> -->
+				</div>
+
+				<hr style="border: none;">
+				<!-- Adicao de comentario -->
+				<div class="row" id="divComentario" style="display: none;">
+					<div class="col-md-12">
+						<label for="comentario">Adicionar Comentário</label>
+						<textarea name="comentario" id="comentario" rows="3" class="form-control"></textarea>
+					</div>
+				</div>
+
+				<div class="row" id="divContratoVigente">
+					<div class="col-md-12">
+						<legend>Contrato Vigente</legend>
+						<h3>Baixar versão a versão vigente do contrato:</h3>
+						<!-- <a href="#" target="_blank" id="btnDownloadContVig" class="btn btn-primary btnDownloadContVig"><i class="fluigicon fluigicon-download icon-xs"></i> Download</a> -->
+					</div>
+				</div>
+
+				<div class="container" id="divContraConsolidado">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- <legend>Contrato Consolidado</legend> -->
+						</div>
+						<div class="row form-group">
+							<div class="col-xs-12">
+								<div class="table-responsive">
+									<table class="table table-striped" id="tbContratoConsol">
+										<thead>
+											<th>Contrato Consolidado</th>
+											<th></th>
+										</thead>
+										<tbody></tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="container" id="divAnxConsolidado">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- <legend>Anexo Consolidado</legend> -->
+						</div>
+						<div class="row form-group">
+							<div class="col-xs-12">
+								<div class="table-responsive">
+									<table class="table table-striped" id="tbAnexoConsol">
+										<thead>
+											<th>Anexo Consolidado</th>
+											<th></th>
+										</thead>
+										<tbody></tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row" id="divContratoExpirado">
+					<div class="col-md-12">
+						<legend>Contrato Expirado</legend>
+						<!-- <h3>Baixar versão a versão vigente do contrato:</h3>
+						<a href="#" target="_blank" id="btnDownloadContExp" class="btn btn-primary btnDownloadContExp"><i class="fluigicon fluigicon-download icon-xs"></i> Download</a> -->
+						<div class="row">
+							<div class="col-md-2">
+								<label for="dataExpirado">Data expirado:</label>
+								<input type="text" name="dataExpirado" id="dataExpirado" class="form-control" readonly>	
+							</div>
+							<div class="col-md-4">
+								<label for="UsuarioExp">Usuário:</label>
+								<input type="text" name="usuarioExpira" id="usuarioExpira" class="form-control" readonly>	
+								<input type="hidden" name="idUsuarioExpira" id="idUsuarioExpira">	
+							</div>
+							<div class="col-md-6">
+								<label for="motivoExpirado">Motivo</label>
+								<textarea class="form-control" id="motivoExpirado" name="motivoExpirado"></textarea>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						<h4>Insira os documentos de encerramento de contrato (email, solicitação, etc.)</h4>
+						<br>
+					</div>
+					<div class="form-group">
+						<div class="col-md-3">
+							<a class="file-input-wrapper btn btn-success ">
+								<span><i class="fluigicon fluigicon-fileadd icon-xs"></i> Adicionar documento</span>
+								<input id="btnAddDocEncerrado" type="file" name="btnAddDocEncerrado" data-url="/ecm/upload" class="btn btn-primary btn-sm btn-block btnAddDocEncerrado" title="Buscar Arquivo(s)" multiple/>
+							</a>
+						</div>
+						<div class="col-xs-12">
+							<div class="table-responsive">
+								<table class="table table-striped" tablename="tbDocEncerrado" id="tbDocEncerrado" noaddbutton="true" nodeletebutton="true">
+									<thead>
+										<tr>
+											<th>Documento</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><input type="text" id="trDescDocEncerrado" name="trDescDocEncerrado" class="form-control" readonly>
+												<input type="hidden" name="hdnIdDocEncerrado" id="hdnIdDocEncerrado">
+												<input type="hidden" id="hdnUrlDocEncerrado" name="hdnUrlDocEncerrado">
+											</td>
+											<td>
+												<button type="button" class="btn btn-danger" id="btnRmvDocEncerrado" name="btnRmvDocEncerrado" onclick="trDeleteAnexo(this)">Remover</button>
+												<a href="" type="button" class="btn btn-danger btnDownDocEncerrado" id="btnDownDocEncerrado" name="btnDownDocEncerrado">Download</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Adicao de comentario // Adicionar documento -->
+				<div class="row" id="divContrato">
+					<div class="col-xs-12">
+						<legend>Contrato</legend>
+						<p>Para adicionar o contrato clique em "adicionar"</p>
+						<div class="row" id="divAddContrato">
+							
+							<div class="col-md-3">
+								<a class="file-input-wrapper btn btn-success ">
+									<span><i class="fluigicon fluigicon-plus icon-xs"></i> Adicionar</span>
+									<input id="btnAddContrato" type="file" name="btnAddContrato" data-url="/ecm/upload"	class="btn btn-primary btn-sm btn-block btnAddContrato" title="Buscar Arquivo(s)" multiple/>
+								</a>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<table class="table table-striped" tablename="tbTrContrato" id="tbTrContrato" noaddbutton="true" nodeletebutton="true">
+								<thead>
+									<tr>
+										<th>
+											<label></label>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div class="row form-group">
+												<div class="col-md-8">
+													<input type="text" class="form-control trDescContrato" id="trDescContrato" name="trDescContrato" readonly>
+													<input type="hidden" id="hdnIdContrato" name="hdnIdContrato">
+													<input type="hidden" id="hdnUrlContrato" name="hdnUrlContrato">
+												</div>
+												<div class="col-md-4">
+													<a class="file-input-wrapper btn btn-success ">
+														<span><i class="fluigicon fluigicon-fileadd icon-xs"></i> Adicionar revisão</span>
+														<input id="btnAddRevisaoContr" type="file" name="btnAddRevisaoContr" data-url="/ecm/upload"	class="btn btn-primary btn-sm btn-block btnAddRevisaoContr" title="Buscar Arquivo(s)" multiple/>
+													</a>
+													<a class="btn btn-danger btnRmvContrato" name="btnRmvContrato" id="btnRmvContrato" onclick="trDeleteAnexo(this);"><i class="fluigicon fluigicon-trash icon-xs"></i> Remover</a>
+													<a href="#" target="_blank" class="btn btn-info btnDownloadCont" name="btnDownloadCont" id="btnDownloadCont"><i class="fluigicon fluigicon-download icon-xs"></i> Download</a>
+												</div>
+											</div>									
+											<div class="row">
+												<table id="tbRevisao">
+													<thead><tr></tr></thead>
+													<tbody>
+														<tr style="display:block !important;"></tr>
+													</tbody>
+												</table>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<br>
+					</div>
+				</div>
+
+				<hr style="border: none;">
+
+				<!-- Inicio Lista de Anexos -->
+				<div class="row" id="divTrackingContrato">
+					<div class="col-md-12">
+						<legend>Anexos</legend>
+						<p>Adicione os anexos do contrato solicitado caso possua</p>
+						<div class="divAddAnexo">
+							<!-- <button type="button" class="btn btn-success btnAddAnexo" name="btnAddAnexo" id="btnAddAnexo">Adicionar</button> -->
+							<a class="file-input-wrapper btn btn-success ">
+								<span><i class="fluigicon fluigicon-plus icon-xs"></i> Adicionar</span>
+								<input id="btnAddAnexo" type="file" name="btnAddAnexo" data-url="/ecm/upload"	class="btn btn-primary btn-sm btn-block btnAddAnexo" title="Buscar Arquivo(s)" multiple/>
+							</a>
+						</div>
+
+						<div class="col-md-12">
+							<table class="table table-striped" tablename="tbTrAnexos" id="tbTrAnexos" noaddbutton="true" nodeletebutton="true">
+								<thead>
+									<tr>
+										<th><label></label></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div class="row form-group">
+												<div class="col-md-8">
+													<input type="text" class="form-control trDescAnexo" id="trDescAnexo" name="trDescAnexo" readonly>
+													<input type="hidden" name="hdnIdAnexo" id="hdnIdAnexo">
+													<input type="hidden" id="hdnUrlAnexo" name="hdnUrlAnexo">
+												</div>
+												<div class="col-md-4">
+													<a class="file-input-wrapper btn btn-success ">
+														<span><i class="fluigicon fluigicon-fileadd icon-xs"></i> Adicionar revisão</span>
+														<input id="btnAddRevisaoAnexo" type="file" name="btnAddRevisaoAnexo" data-url="/ecm/upload" class="btn btn-primary btn-sm btn-block btnAddRevisaoAnexo" title="Buscar Arquivo(s)" multiple/>
+													</a>
+													<a class="btn btn-danger btnRmvAnexo" name="btnRmvAnexo" id="btnRmvAnexo" onclick="trDeleteAnexo(this);"><i class="fluigicon fluigicon-trash icon-xs"></i> Remover</a>
+													<a href="#" class="btn btn-info btnDownloadAnx" name="btnDownloadAnexo" id="btnDownloadAnexo"><i class="fluigicon fluigicon-download icon-xs"></i> Download</a>
+												</div>
+											</div>
+											<div class="row">
+												<table id="tbRevisaoAnexo">
+													<thead><tr></tr></thead>
+													<tbody>
+														<tr style="display:block !important;"></tr>
+													</tbody>
+												</table>
+											</div>								
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="container" id="divDocEncerrado">
+					
+				</div>
+				
+
+			</div><!-- contaner-fluid -->
+
+		</form>
+	</div>
+</body>
+<script id="tmplStatus" type="text/template">
+	<h1>{{descricao}}</h1>
+	
+</script>
+	<script id="tmplRevisaoContrato" type="text/template">
+		<div class="container" id="arqv{{idSon}}">
+			<div class="row form-group">
+				<div class="col-md-1">
+					<h5>Revisão {{idSon}}</h5>
+				</div>
+				<div class="col-md-5">
+					<input type="text" class="form-control" id="trDescRev{{tipoDoc}}___{{idFather}}_{{idSon}}"  readonly>
+					<input type="hidden" id="trIdRev{{tipoDoc}}___{{idFather}}_{{idSon}}" value="{{idDoc}}" readonly>
+				</div>
+				<div class="col-md-2">
+					<input type="text" class="form-control" id="trUserRev{{tipoDoc}}___{{idFather}}_{{idSon}}" readonly value="{{userRev}}">
+				</div>
+				<div class="col-md-2">
+					<input type="text" class="form-control" id="trDataRev{{tipoDoc}}___{{idFather}}_{{idSon}}" readonly value="{{dataRev}}">
+				</div>
+				<div class="col-md-2">
+					<button type="button" class="btn btn-danger btnRemoveRevisao" id="btnRemove___{{idFather}}_{{idSon}}" name="btnRemove___{{idFather}}_{{idSon}}" onclick="removeAnxRevisao(this);" data-toggle="tooltip" data-placement="top" title="Remover revisão"><i class="fluigicon fluigicon-trash icon-sm"></i></button>
+					<a href="{{linkDownload}}" target="_blank" id="btnDownload___{{idFather}}_{{idSon}}" name="btnDownload___{{idFather}}_{{idSon}}" class="btn btn-info btnDownloadRev" data-toggle="tooltip" data-placement="top" title="Download revisão"><i class="fluigicon fluigicon-download icon-sm"></i></a>
+				</div>
+			</div>
+		</div>
+	</script>
+
+	<script id="tmplRevisaoContratoVIEW" type="text/template">
+		<div class="container" id="arqv{{idSon}}">
+			<div class="row form-group">
+				<div class="col-md-1">
+					<span class="form-control">Revisão {{idSon}}</span>
+				</div>
+				<div class="col-md-5">
+					<span class="form-control" id="trDescRev{{tipoDoc}}___{{idFather}}_{{idSon}}"></span>
+					<input type="hidden" id="trIdRev{{tipoDoc}}___{{idFather}}_{{idSon}}" text="{{idDoc}}" readonly>
+				</div>
+				<div class="col-md-2">
+					<span class="form-control" id="trUserRev{{tipoDoc}}___{{idFather}}_{{idSon}}">{{userRev}}</span>
+				</div>
+				<div class="col-md-2">
+					<span class="form-control" id="trDataRev{{tipoDoc}}___{{idFather}}_{{idSon}}">{{dataRev}}</span>
+				</div>
+				<div class="col-md-2">
+					<button type="button" class="btn btn-danger btnRemoveRevisao" id="btnRemove___{{idFather}}_{{idSon}}" name="btnRemove___{{idFather}}_{{idSon}}" onclick="removeAnxRevisao(this);" data-toggle="tooltip" data-placement="top" title="Remover revisão"><i class="fluigicon fluigicon-trash icon-sm"></i></button>
+					<a href="{{linkDownload}}" target="_blank" id="btnDownload___{{idFather}}_{{idSon}}" name="btnDownload___{{idFather}}_{{idSon}}" class="btn btn-info btnDownloadRev" data-toggle="tooltip" data-placement="top" title="Download revisão"><i class="fluigicon fluigicon-download icon-sm"></i></a>
+				</div>
+			</div>
+		</div>
+	</script>
+	<script id="tmplContratoCons" type="text/template">
+		<tr>
+			<td>
+				<h5>{{nomeDoc}}</h5>
+			</td>
+			<td class="text-right">
+				<a href="{{linkDownload}}" target="_blank" id="btnDownConsol___{{idFather}}" name="btnDownConsol___{{idFather}}" class="btn btn-info"><i class="fluigicon fluigicon-download icon-xs"></i> Download arquivo</a>
+			</td>
+		</tr>
+	</script>
+	<script id="tmplAnxConsNull" type="text/template">
+		<tr>
+			<td>
+				<h5>Não existem documentos anexados a essa solicitação</h5>
+			</td>
+			<td></td>
+		</tr>
+	</script>
+	<script id="tmplCollapseHist" type="tmplCollapseHist">
+    	<div class="row">
+    		<div class="col-xs-12">
+    			<hr>
+    		</div>
+            <div class="col-md-2">
+            	<h5>Autor:</h5>{{autor}}
+            </div>
+            <div class="col-md-2">
+            	<h5>Fase:</h5>{{atividade}}
+            </div>
+            <div class="col-md-2">
+            	<h5>Data:</h5>{{data}}
+            </div>
+            <div class="col-md-6">
+            	<h5>Observação:</h5><p class="text-justify">{{msg}}</p>
+            </div>
+        </div>
+	</script>
+</html>
