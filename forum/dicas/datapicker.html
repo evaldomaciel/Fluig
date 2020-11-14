@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datapicker</title>
+    <script src="https://code.jquery.com/jquery-2.2.2.js"></script>
+    <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#yearPicker').datetimepicker({
+                format: "YYYY",
+                viewMode: "years",
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="form-group">
+        <div class='input-group date'>
+            <label>Date</label>
+            <input type="text" id="yearPicker">
+        </div>
+    </div>
+</body>
+
+</html>
