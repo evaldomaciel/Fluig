@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<!-- https://lab.fluig.com/portal/WURTH/solicitacao_de_boletos -->
+
+<head>
+	<title>Form</title>
+	<!-- <link rel="stylesheet" type="text/css" href="https://lab.fluig.com/style-guide/css/fluig-style-guide.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="https://style.fluig.com/css/fluig-style-guide-flat.min.css">
+	<script src="https://lab.fluig.com/resources/js/jquery/jquery.js"></script>
+	<script src="https://lab.fluig.com/resources/js/jquery/jquery-ui.min.js"></script>
+	<script src="https://lab.fluig.com/resources/js/mustache/mustache-min.js"></script>
+	<script src="https://lab.fluig.com/style-guide/js/fluig-style-guide.min.js"></script>
+	<!-- CUSTOM -->
+	<link href="/style-guide/css/fluig-style-guide-filter.min.css" rel="stylesheet" type="text/css">
+	<link href="/style-guide/css/fluig-style-guide-ratingstars.min.css" rel="stylesheet" type="text/css">
+	<script src="https://lab.fluig.com/style-guide/js/fluig-style-guide-filter.min.js"></script>
+	<script src="https://lab.fluig.com/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/pdfmake.min.js" crossorigin="anonymous"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/vfs_fonts.min.js" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+
+	<script type="text/javascript" src="https://lab.fluig.com/webdesk/vcXMLRPC.js"></script>
+	<script src="custom.js"></script>
+	<style>
+		.required::after {
+			content: " * ";
+			color: red;
+		}
+
+		page[size="A4"] {
+			background: white;
+			width: 21cm;
+			height: 29.7cm;
+			display: block;
+			/* margin: 0 auto; */
+			margin-bottom: 0.5cm;
+			box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+		}
+
+		@media print {
+
+			body,
+			page[size="A4"] {
+				margin: 0;
+				box-shadow: 0;
+			}
+		}
+
+		.printDiv {
+			width: 21cm;
+			min-height: 29.7cm;
+			padding: 2cm;
+			/* margin: 0 auto; */
+			border: 1px #D3D3D3 solid;
+			border-radius: 5px;
+			background: white;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+		}
+	</style>
+</head>
+
+<body class="fluig-style-guide printDiv">
+	<div id="printDiv">
+		<form class="totvs-form grid vertical create-form-components ui-sortable t1" id="form" name="createFormComponents" style="padding-left: 10px; padding-right: 10px;">
+			<input type="hidden" name="ultima_atividade" id="ultima_atividade" />
+			<input type="hidden" name="penultima_atividade" id="penultima_atividade" />
+			<h1 class="title-form-application">Teste PDF</h1>
+			<div class="paragraph-is-required system-message-information alert alert-info" role="alert">Todos os campos com * são de preenchimento obrigatório.</div>
+
+			<div class="panel panel-danger solicitacao">
+				<div class="panel-heading">Solicitação</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="form-input col-xs-2 col-sm-2 col-md-2 num_solicita">
+							<div class="form-group ">
+								<label>Protocolo</label>
+								<input type="text" class="form-control" name="num_solicita" id="num_solicita" data-size="medium" readonly="">
+							</div>
+						</div>
+						<div class="form-input col-xs-6 col-sm-6 col-md-4 col-lg-4">
+							<div class="form-group">
+								<label class="required">Titulo da Solicitação</label>
+								<input type="text" class="form-control" name="titulo_solicita" placeholder="" data-size="medium" required="required">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<p>Mussum Ipsum, cacilds vidis litro abertis. <b>Delegadis</b> gente finis, bibendum egestas augue arcu ut est. Cevadis im ampola pa arma uma pindureta. In elementis mé pra quem é amistosis quis leo. Mé faiz elementum girarzis, nisi eros vermeio.</p>
+							<p>Atirei o pau no gatis, per gatis num morreus. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Sapien in monti palavris qui num significa nadis i pareci latim. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.</p>
+							<p>Viva Forevis aptent taciti sociosqu ad litora torquent. Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+
+<div class="row">
+	<div class="col-md-12">
+		<button type="button" id="pdfDownloader">Download</button>
+	</div>
+</div>
+
+</html>
