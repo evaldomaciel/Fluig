@@ -1,0 +1,155 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="custom.js" charset="utf-8"></script>
+</head>
+
+<body onload="inicial()">
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+
+			<div class="container-fluid">
+				<div class="panel panel-default">
+					<div class="panel-heading">Solicitação de agendamento</div>
+					<div class="panel-body">
+
+						<div class="row">
+							<div class="col-md-2 form-group">
+								<label for="nm_solicitacao">Número da Solicitação</label>
+								<input class="form-control" type="text" name="nm_solicitacao" id="nm_solicitacao" />
+							</div>
+							<div class="col-md-10 form-group">
+								<label for="ds_solicitante">Nome</label>
+								<input class="form-control" type="text" name="ds_solicitante" id="ds_solicitante" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2 form-group">
+								<label for="dt_agendamento">Data de agendamento</label>
+								<input class="form-control" type="text" name="dt_agendamento" id="dt_agendamento" />
+							</div>
+							<div class="col-md-10 form-group">
+								<label for="ds_agendamento">Descrição</label>
+								<input class="form-control" type="text" name="ds_agendamento" id="ds_agendamento" />
+							</div>
+							<div class="col-md-2 form-group">
+								<label for="nm_cep">CEP</label>
+								<input class="form-control" type="text" name="nm_cep" id="nm_cep" maxlength="8" />
+							</div>
+							<div class="col-md-2 form-group">
+								<label for="nm_uf">Estado</label>
+								<input class="form-control" type="text" name="nm_uf" id="nm_uf" />
+							</div>
+							<div class="col-md-3 form-group">
+								<label for="nm_cidade">Cidade</label>
+								<input class="form-control" type="text" name="nm_cidade" id="nm_cidade" />
+							</div>
+							<div class="col-md-3 form-group">
+								<label for="nm_bairro">Bairro</label>
+								<input class="form-control" type="text" name="nm_bairro" id="nm_bairro" />
+							</div>
+							<div class="col-md-4 form-group">
+								<label for="nm_logradouro">Logradouro</label>
+								<input class="form-control" type="text" name="nm_logradouro" id="nm_logradouro" />
+							</div>
+							<div class="col-md-2 form-group">
+								<label for="nm_sala">Sala</label>
+								<input class="form-control" type="text" name="nm_sala" id="nm_sala" />
+							</div>
+							<div class="col-md-2 form-group">
+								<label for="ds_periodo">Período</label>
+								<div class="custom-radio custom-radio-info">
+									<input type="radio" name="ds_periodo" value="manha" id="ds_periodo_manha">
+									<label for="ds_periodo_manha">Manhã</label>
+								</div>
+								<div class="custom-radio custom-radio-info">
+									<input type="radio" name="ds_periodo" value="tarde" id="ds_periodo_tarde">
+									<label for="ds_periodo_tarde">Tarde</label>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">Participantes</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-6 form-group">
+								<label for="ds_participante">Participante</label>
+								<input class="form-control" type="zoom" id="ds_participante" name="ds_participante" data-zoom="{
+								'displayKey':'NOME',
+								'datasetId':'ds_rm_consultaPessoas',
+								'maximumSelectionLength':'1',
+								'placeholder':'Escolha o usuário',
+								'fields':[
+									{
+									   'field':'CODIGO',
+									   'label':'ID'
+									},{
+									  'field':'NOME',
+									  'label':'Nome',
+									  'standard':'true'
+									},{
+									  'field':'EMAIL',
+									  'label':'E-mail'
+									}
+								]
+							 }" />
+							</div>
+							<div class="col-md-6 form-group">
+								<label for="ds_email">E-mail</label>
+								<input type="hidden" id="CODIGO" name="CODIGO" />
+								<input class="form-control" type="text" id="ds_email" name="ds_email" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-default" id="apravacao">
+					<div class="panel-heading">
+						<h3 class="panel-title">Aprovação</h3>
+					</div>
+					<div class="panel-body">
+
+						<div class="row">
+							<div class="col-md-12 form-group">
+								<label for="ds_aprovador">Aprovador</label>
+								<input class="form-control" type="text" name="ds_aprovador" id="ds_aprovador" readonly />
+							</div>
+							<div class="col-md-12 form-group">
+								<label for="ds_obs_aprovao">Observações</label>
+								<textarea class="form-control" name="ds_obs_aprovao" id="ds_obs_aprovao" rows="5"></textarea>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-2 form-group">
+								<label for="ds_aprovacao">Aprovação</label>
+								<div class="custom-radio custom-radio-info">
+									<input type="radio" name="ds_aprovacao" value="aprovado" id="ds_aprovacao_aprovado">
+									<label for="ds_aprovacao_aprovado">Aprovado</label>
+								</div>
+								<div class="custom-radio custom-radio-info">
+									<input type="radio" name="ds_aprovacao" value="reprovado" id="ds_aprovacao_reprovado">
+									<label for="ds_aprovacao_reprovado">Reprovado</label>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</form>
+	</div>
+</body>
+
+</html>

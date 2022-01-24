@@ -1,0 +1,79 @@
+2021-01-17	[INFO]	Atividades desenvolvidas
+- Validação de acesso ao ambiente. Ambiente de homologação apresentou erro. Cliente abriu um chamado solicitando verificação.
+- Realizada apresentação do treinamento.
+- Realizada apresentação dos paineis de administração WCM e ADMIN padrão.
+- Realizado treinamento básico para administração de documento (ECM).
+- Realizado treinamento básico para desenvolvimento de processo BPN via plataforma.
+- Realizado treinamento básico para administração da plataforma.
+
+Atividades pendentes
+- Treinamento avançado para desenvolvimento de processos via TDS.
+- Treinamento avançado para desenvolvimento de formulários via TDS.
+- Treinamento avançado para desenvolvimento de portais via TDS.
+- Treinamento básico para administração do Social.
+
+2021-01-18	[INFO]	Atividades desenvolvidas
+- Treinamento avançado - Desenvolvimento de processos via TDS
+- Treinamento avançado - Desenvolvimento de formulários via TDS
+- Treinamento Avançado - Desenvolvimento de dataset simples
+- Treinamento Avançado - Integração direta via formulário
+- Treinamento Avançado - Desenvolvimento de dataset avançando
+- Treinamento Avançado - Integração com RM
+- Redigida MIF006 após a finalização do dia de treinamento
+
+
+
+
+
+
+
+
+[WARN] BACKLOG 
+
+- Guia de estilo do Fluig - https://style.fluig.com/
+- Documentação padrão - http://dev.fluig.com/
+
+- jQuery Mask - https://igorescobar.github.io/jQuery-Mask-Plugin/
+
+- Desenvolvimento de formulário https://tdn.totvs.com/pages/releaseview.action?pageId=75270483
+
+- Construção de dataset avançando https://tdn.totvs.com/pages/viewpage.action?pageId=412888219
+
+- Evento global hAPI https://tdn.totvs.com/display/public/fluig/hAPI
+
+- Documentação RM https://api.totvs.com.br/legado/devrm/bo_rm
+
+- Cadastro de banco de dados externo no Fluig para consulta https://tdn.totvs.com/display/public/fluig/Datasets+acessando+banco+de+dados+externo
+
+- Metodos de execução banco de dados https://cursos.alura.com.br/forum/topico-execute-vs-executequery-vs-executeupdate-45673
+
+------------------------------
+
+
+Atividade prática
+
+1. Capturar o retorno o retorna integração com RM e salvar em um campo do formulário no Fluig. 
+2. Criar uma nova seção no formulário chama "Integração" com o campo "Detalhes da Integração".
+3. Incluir masca no campo CEP com o jQuery Mask. 
+4. Criar ao menos 10 registro de formulário.
+
+
+
+paulo.moalves@idor.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

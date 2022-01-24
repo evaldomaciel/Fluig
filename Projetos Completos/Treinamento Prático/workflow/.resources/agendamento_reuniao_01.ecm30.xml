@@ -1,0 +1,995 @@
+<list>
+  <ProcessDefinition>
+    <processDefinitionPK>
+      <companyId>1</companyId>
+      <processId>agendamento_reuniao_01</processId>
+    </processDefinitionPK>
+    <processDescription>Agendamento de Sala de Reunião</processDescription>
+    <instruction></instruction>
+    <active>true</active>
+    <publicProcess>false</publicProcess>
+    <volumeId>Default</volumeId>
+    <categoryId>Treinamento</categoryId>
+    <managerEngineAllocationId></managerEngineAllocationId>
+    <snapshotFrequency>0</snapshotFrequency>
+    <baseDay>0</baseDay>
+    <baseMonth>0</baseMonth>
+    <periodId>Default</periodId>
+    <uniqueCardVersion>false</uniqueCardVersion>
+    <keyWord></keyWord>
+    <complementsLevel>1</complementsLevel>
+    <notifyRequisitionerComplements>true</notifyRequisitionerComplements>
+    <notifyManagerComplements>false</notifyManagerComplements>
+    <deadlineTime>0</deadlineTime>
+    <warningDeadlineTime>0</warningDeadlineTime>
+    <notifyAuthorityComplements>true</notifyAuthorityComplements>
+  </ProcessDefinition>
+  <ProcessDefinitionVersion>
+    <processDefinitionVersionPK>
+      <companyId>1</companyId>
+      <processId>Agendamento de Sala de Reunião</processId>
+      <version>4</version>
+    </processDefinitionVersionPK>
+    <versionDescription></versionDescription>
+    <formId>463</formId>
+    <editionMode>true</editionMode>
+    <updateAttachmentsVersion>false</updateAttachmentsVersion>
+    <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
+    <active>true</active>
+    <blockedVersion>false</blockedVersion>
+    <counterSign>false</counterSign>
+    <openInstances>0</openInstances>
+    <bpmnVersion>2</bpmnVersion>
+    <processStates/>
+    <favorito>false</favorito>
+    <inheritFormSecurity>false</inheritFormSecurity>
+    <mobileReady>false</mobileReady>
+  </ProcessDefinitionVersion>
+  <list>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </processStatePK>
+      <stateName>Início</stateName>
+      <stateDescription>Início</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>true</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>150</positionX>
+      <positionY>82</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>10</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <sequence>5</sequence>
+      </processStatePK>
+      <stateName>Aprovação</stateName>
+      <stateDescription>Aprovação</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Papel</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Role&gt;admin&lt;/Role&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>410</positionX>
+      <positionY>199</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <sequence>14</sequence>
+      </processStatePK>
+      <stateName>Atualiza e-mail</stateName>
+      <stateDescription>Atualiza e-mail</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>140</positionX>
+      <positionY>191</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>1</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <sequence>17</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>230</positionX>
+      <positionY>251</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>43</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>14</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <sequence>9</sequence>
+      </processStatePK>
+      <stateName>Aprovado?</stateName>
+      <stateDescription>Aprovado?</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>620</positionX>
+      <positionY>175</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <sequence>12</sequence>
+      </processStatePK>
+      <stateName>Fim</stateName>
+      <stateDescription>Fim</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>760</positionX>
+      <positionY>211</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>60</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+  </list>
+  <list>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>4</version>
+        <sequence>9</sequence>
+      </conditionProcessStatePK>
+      <condition></condition>
+      <destinationSequenceId>12</destinationSequenceId>
+      <conditionType>1</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>4</version>
+        <sequence>9</sequence>
+      </conditionProcessStatePK>
+      <condition></condition>
+      <destinationSequenceId>4</destinationSequenceId>
+      <conditionType>1</conditionType>
+    </ConditionProcessState>
+  </list>
+  <list>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <linkSequence>10</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>5</initialStateSequence>
+      <finalStateSequence>9</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <linkSequence>11</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>9</initialStateSequence>
+      <finalStateSequence>4</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <linkSequence>13</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>9</initialStateSequence>
+      <finalStateSequence>12</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <linkSequence>15</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>4</initialStateSequence>
+      <finalStateSequence>14</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <linkSequence>16</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>14</initialStateSequence>
+      <finalStateSequence>5</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <linkSequence>18</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>17</initialStateSequence>
+      <finalStateSequence>4</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+  </list>
+  <list/>
+  <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask14</eventId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask14(attempt, message) {
+	var NOME_DATASERVER = &quot;RhuPessoaData&quot;;
+
+	var datasetDs_parametros = DatasetFactory.getDataset(&apos;ds_parametros&apos;, null, null, null);
+
+	/* Prepararação das variaveis */
+	//usuário e senha do aplicativo RM. O mesmo utilizado para logar no sistema e que tenha permissão de   
+	//acesso ao cadastro que deseja utilizar  
+	var usuario = datasetDs_parametros.getValue(0, &quot;RM_USUARIO&quot;);
+	var senha = datasetDs_parametros.getValue(0, &quot;RM_SENHA&quot;);
+
+	//importante passar no contexto o mesmo código de usuário usado para logar no webservice  
+	var context = &quot;CODSISTEMA=G;CODCOLIGADA=1;CODUSUARIO=mestre&quot;
+	/* Fim Prepararação das variaveis */
+
+	try {
+
+		if (isEmpty(hAPI.getCardValue(&quot;CODIGO&quot;)))
+			return
+		var primaryKey = hAPI.getCardValue(&quot;CODIGO&quot;);
+
+		// carrega o webservice...  
+		var authService = getWebService(usuario, senha);
+		// define o contexto...  
+		// faz a leitura...  
+		var text = new String(authService.readRecord(NOME_DATASERVER, primaryKey, context));
+
+		if (!ChekExist(text))
+			text = GetXml();
+
+		// atualiza o valor...  
+		text = replaceValue(text, &quot;EMAIL&quot;, hAPI.getCardValue(&quot;ds_email&quot;));
+
+
+		var result = new String(authService.saveRecord(NOME_DATASERVER, text, context));
+
+		// se retornou a chave, salvou ok...  
+		checkIsPK(result, 1);
+	}
+	catch (e) {
+		if (e == null) e = &quot;Erro desconhecido!&quot;;
+		var mensagemErro = &quot;Ocorreu um erro ao salvar dados no RM: &quot; + e;
+		throw mensagemErro;
+	}
+}
+
+
+function GetXml() {
+	return &quot;&lt;RhuPessoa&gt;&quot; +
+		&quot;  &lt;PPessoa&gt;&quot; +
+		&quot;    &lt;CODIGO&gt;1&lt;/CODIGO&gt;&quot; +
+		&quot;    &lt;NOME&gt;ITAMAR MENDES DA SILVEIRA&lt;/NOME&gt;&quot; +
+		&quot;    &lt;DTNASCIMENTO&gt;1965-08-10T00:00:00&lt;/DTNASCIMENTO&gt;&quot; +
+		&quot;    &lt;ESTADONATAL&gt;MG&lt;/ESTADONATAL&gt;&quot; +
+		&quot;    &lt;NATURALIDADE&gt;Belo Horizonte&lt;/NATURALIDADE&gt;&quot; +
+		&quot;    &lt;APELIDO&gt;asdf&lt;/APELIDO&gt;&quot; +
+		&quot;    &lt;SEXO&gt;M&lt;/SEXO&gt;&quot; +
+		&quot;    &lt;NACIONALIDADE&gt;10&lt;/NACIONALIDADE&gt;&quot; +
+		&quot;    &lt;GRAUINSTRUCAO&gt;9&lt;/GRAUINSTRUCAO&gt;&quot; +
+		&quot;    &lt;RUA&gt;Rua Mata Atlantica&lt;/RUA&gt;&quot; +
+		&quot;    &lt;NUMERO&gt;333&lt;/NUMERO&gt;&quot; +
+		&quot;    &lt;BAIRRO&gt;Planalto&lt;/BAIRRO&gt;&quot; +
+		&quot;    &lt;ESTADO&gt;MG&lt;/ESTADO&gt;&quot; +
+		&quot;    &lt;CIDADE&gt;Belo Horizonte&lt;/CIDADE&gt;&quot; +
+		&quot;    &lt;CEP&gt;30100020&lt;/CEP&gt;&quot; +
+		&quot;    &lt;PAIS&gt;Brasil&lt;/PAIS&gt;&quot; +
+		&quot;    &lt;REGPROFISSIONAL&gt;Reg-00098&lt;/REGPROFISSIONAL&gt;&quot; +
+		&quot;    &lt;CPF&gt;51427362653&lt;/CPF&gt;&quot; +
+		&quot;    &lt;IDIMAGEM&gt;844&lt;/IDIMAGEM&gt;&quot; +
+		&quot;    &lt;TELEFONE1&gt;4613636&lt;/TELEFONE1&gt;&quot; +
+		&quot;    &lt;CARTIDENTIDADE&gt;M 267392&lt;/CARTIDENTIDADE&gt;&quot; +
+		&quot;    &lt;UFCARTIDENT&gt;MG&lt;/UFCARTIDENT&gt;&quot; +
+		&quot;    &lt;ORGEMISSORIDENT&gt;SSP&lt;/ORGEMISSORIDENT&gt;&quot; +
+		&quot;    &lt;DTEMISSAOIDENT&gt;1993-04-25T00:00:00&lt;/DTEMISSAOIDENT&gt;&quot; +
+		&quot;    &lt;TITULOELEITOR&gt;123.334&lt;/TITULOELEITOR&gt;&quot; +
+		&quot;    &lt;ZONATITELEITOR&gt;0012&lt;/ZONATITELEITOR&gt;&quot; +
+		&quot;    &lt;SECAOTITELEITOR&gt;0006&lt;/SECAOTITELEITOR&gt;&quot; +
+		&quot;    &lt;CARTEIRATRAB&gt;015116&lt;/CARTEIRATRAB&gt;&quot; +
+		&quot;    &lt;SERIECARTTRAB&gt;00001&lt;/SERIECARTTRAB&gt;&quot; +
+		&quot;    &lt;UFCARTTRAB&gt;MG&lt;/UFCARTTRAB&gt;&quot; +
+		&quot;    &lt;DTCARTTRAB&gt;1993-03-01T00:00:00&lt;/DTCARTTRAB&gt;&quot; +
+		&quot;    &lt;NIT&gt;0&lt;/NIT&gt;&quot; +
+		&quot;    &lt;CARTMOTORISTA&gt;13.344.543&lt;/CARTMOTORISTA&gt;&quot; +
+		&quot;    &lt;TIPOCARTHABILIT&gt;A&lt;/TIPOCARTHABILIT&gt;&quot; +
+		&quot;    &lt;DTVENCHABILIT&gt;1997-02-05T00:00:00&lt;/DTVENCHABILIT&gt;&quot; +
+		&quot;    &lt;CERTIFRESERV&gt;12856945678&lt;/CERTIFRESERV&gt;&quot; +
+		&quot;    &lt;CATEGMILITAR&gt;CDI&lt;/CATEGMILITAR&gt;&quot; +
+		&quot;    &lt;CONJUGEBRASIL&gt;0&lt;/CONJUGEBRASIL&gt;&quot; +
+		&quot;    &lt;NATURALIZADO&gt;0&lt;/NATURALIZADO&gt;&quot; +
+		&quot;    &lt;FILHOSBRASIL&gt;0&lt;/FILHOSBRASIL&gt;&quot; +
+		&quot;    &lt;NROFILHOSBRASIL&gt;0&lt;/NROFILHOSBRASIL&gt;&quot; +
+		&quot;    &lt;EMAIL&gt;masterkeyweb@totvs.com.br&lt;/EMAIL&gt;&quot; +
+		&quot;    &lt;INVESTTREINANT&gt;2300.00&lt;/INVESTTREINANT&gt;&quot; +
+		&quot;    &lt;CORRACA&gt;0&lt;/CORRACA&gt;&quot; +
+		&quot;    &lt;DEFICIENTEFISICO&gt;0&lt;/DEFICIENTEFISICO&gt;&quot; +
+		&quot;    &lt;CODUSUARIO&gt;simone&lt;/CODUSUARIO&gt;&quot; +
+		&quot;    &lt;TELEFONE3&gt;21229000&lt;/TELEFONE3&gt;&quot; +
+		&quot;    &lt;EMPRESA&gt;RM SISTEMAS S.A&lt;/EMPRESA&gt;&quot; +
+		&quot;    &lt;CODOCUPACAO&gt;10&lt;/CODOCUPACAO&gt;&quot; +
+		&quot;    &lt;BRPDH&gt;0&lt;/BRPDH&gt;&quot; +
+		&quot;    &lt;FUMANTE&gt;0&lt;/FUMANTE&gt;&quot; +
+		&quot;    &lt;AJUSTATAMANHOFOTO&gt;0&lt;/AJUSTATAMANHOFOTO&gt;&quot; +
+		&quot;    &lt;DEFICIENTEAUDITIVO&gt;0&lt;/DEFICIENTEAUDITIVO&gt;&quot; +
+		&quot;    &lt;DEFICIENTEFALA&gt;0&lt;/DEFICIENTEFALA&gt;&quot; +
+		&quot;    &lt;DEFICIENTEVISUAL&gt;0&lt;/DEFICIENTEVISUAL&gt;&quot; +
+		&quot;    &lt;DEFICIENTEMENTAL&gt;0&lt;/DEFICIENTEMENTAL&gt;&quot; +
+		&quot;    &lt;DATAAPROVACAOCURR&gt;2005-04-01T09:36:02.66&lt;/DATAAPROVACAOCURR&gt;&quot; +
+		&quot;    &lt;IMAGEM&gt;&lt;/IMAGEM&gt;&quot; +
+		&quot;    &lt;ESTADOROW&gt;0&lt;/ESTADOROW&gt;&quot; +
+		&quot;    &lt;ROWVALIDA&gt;0&lt;/ROWVALIDA&gt;&quot; +
+		&quot;    &lt;ALUNO&gt;1&lt;/ALUNO&gt;&quot; +
+		&quot;    &lt;PROFESSOR&gt;1&lt;/PROFESSOR&gt;&quot; +
+		&quot;    &lt;CANDIDATO&gt;1&lt;/CANDIDATO&gt;&quot; +
+		&quot;    &lt;USUARIOBIBLIOS&gt;1&lt;/USUARIOBIBLIOS&gt;&quot; +
+		&quot;    &lt;FUNCIONARIO&gt;1&lt;/FUNCIONARIO&gt;&quot; +
+		&quot;    &lt;EXFUNCIONARIO&gt;0&lt;/EXFUNCIONARIO&gt;&quot; +
+		&quot;    &lt;DEFICIENTEINTELECTUAL&gt;0&lt;/DEFICIENTEINTELECTUAL&gt;&quot; +
+		&quot;    &lt;FALECIDO&gt;0&lt;/FALECIDO&gt;&quot; +
+		&quot;    &lt;IDADE&gt;53&lt;/IDADE&gt;&quot; +
+		&quot;  &lt;/PPessoa&gt;&quot; +
+		&quot;  &lt;VPCompl&gt;&quot; +
+		&quot;    &lt;CODPESSOA&gt;1&lt;/CODPESSOA&gt;&quot; +
+		&quot;    &lt;IDADE&gt;34&lt;/IDADE&gt;&quot; +
+		&quot;    &lt;PESO&gt;75&lt;/PESO&gt;&quot; +
+		&quot;  &lt;/VPCompl&gt;&quot; +
+		&quot;&lt;/RhuPessoa&gt;&quot;;
+
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>DataClientfluig</eventId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>&#xd;
+/**&apos;&#xd;
+* A API de autenticação da Totvs baseia no &quot;Basic access authentication&quot; do HTTP.&#xd;
+ * Código Java para autenticação &#xd;
+ * Programa responsável por integrar com os Webservices do RM &#xd;
+ *  Exemplo dev valores para os parâmetros &#xd;
+ *		@param string Usuario = &quot;mestre&quot;;&#xd;
+ *		@param string Senha = &quot;totvs&quot;;&#xd;
+*/&#xd;
+&#xd;
+function getWebService(Usuario, Senha){&#xd;
+&#xd;
+    var Nome_Servico = &quot;wsDataServer&quot;;&#xd;
+    var Caminho_Servico = &quot;com.totvs.WsDataServer&quot;;&#xd;
+    &#xd;
+	var dataServerService = ServiceManager.getServiceInstance(Nome_Servico);&#xd;
+	if(dataServerService == null){&#xd;
+		throw &quot;Servico nao encontrado: &quot; + Nome_Servico;&#xd;
+	}&#xd;
+	&#xd;
+	var serviceLocator = dataServerService.instantiate(Caminho_Servico);&#xd;
+	if(serviceLocator == null){&#xd;
+		throw &quot;Instancia do servico nao encontrada: &quot; + Nome_Servico + &quot; - &quot; + Caminho_Servico;&#xd;
+	}&#xd;
+&#xd;
+	var service = serviceLocator.getRMIwsDataServer();	&#xd;
+	if(service == null){&#xd;
+		throw &quot;Instancia do dataserver do invalida: &quot; + Nome_Servico + &quot; - &quot; + Caminho_Servico;&#xd;
+	}&#xd;
+&#xd;
+	var serviceHelper = dataServerService.getBean();&#xd;
+	if(serviceHelper == null){&#xd;
+		throw &quot;Instancia do service helper invalida: &quot; + Nome_Servico + &quot; - &quot; + Caminho_Servico;&#xd;
+	}&#xd;
+&#xd;
+	var authService = serviceHelper.getBasicAuthenticatedClient(service, &quot;com.totvs.IwsDataServer&quot;, Usuario, Senha);	  &#xd;
+	if(serviceHelper == null){&#xd;
+		throw &quot;Instancia do auth service invalida: &quot; + Nome_Servico + &quot; - &quot; + Caminho_Servico;&#xd;
+	}&#xd;
+	&#xd;
+	return authService;&#xd;
+}&#xd;
+&#xd;
+&#xd;
+function dcReadView(dataservername, context, usuario, senha, filtro)&#xd;
+{	 &#xd;
+      // carrega o webservice...&#xd;
+	  var authService = getWebService(usuario, senha);&#xd;
+	  &#xd;
+      // lê os dados da visão respeitando o filtro passado&#xd;
+	  var viewData = new String(authService.readView(dataservername, filtro, context));&#xd;
+&#xd;
+	  return viewData;&#xd;
+ }&#xd;
+&#xd;
+&#xd;
+function dcReadRecord(dataservername, context, usuario, senha, primaryKey)&#xd;
+{	 &#xd;
+      // carrega o webservice...&#xd;
+	  var authService = getWebService(usuario, senha);&#xd;
+&#xd;
+      // lê os dados do registro respeitando a pk passada&#xd;
+	  try&#xd;
+	  {&#xd;
+		var recordData = new String(authService.readRecord(dataservername, primaryKey, context));&#xd;
+	  }&#xd;
+	  catch (e) &#xd;
+	  {&#xd;
+		  var recordData = new String(authService.getSchema(dataservername, context));&#xd;
+	  }&#xd;
+	  &#xd;
+	  return recordData;&#xd;
+ }&#xd;
+  &#xd;
+ &#xd;
+function dcSaveRecord(dataservername, context, usuario, senha, xml)&#xd;
+{	 &#xd;
+      // carrega o webservice...&#xd;
+	  var authService = getWebService(usuario, senha);&#xd;
+&#xd;
+      // salva o registro de acordo com o xml passado&#xd;
+	  var pk = new String(authService.readRecord(dataservername, xml, context));&#xd;
+	  	  &#xd;
+	  return pk;&#xd;
+ }&#xd;
+ &#xd;
+ &#xd;
+//Transforma o conceito de constraints do Fluig para o Filtro do TBC.&#xd;
+function parseConstraints(constraints, filterRequired)&#xd;
+{&#xd;
+	// inicializa o resultado...&#xd;
+	var result = [];&#xd;
+	result.context = &quot;&quot;;&#xd;
+	&#xd;
+	// inicializa o filtro...&#xd;
+	var filter = &quot;&quot;;&#xd;
+	&#xd;
+	// varre as contraints...&#xd;
+    for	(con in constraints) {&#xd;
+    	var fieldName = con.getFieldName().toUpperCase();&#xd;
+    	if (fieldName == &quot;RMSCONTEXT&quot;)&#xd;
+    	{&#xd;
+    		result.context = con.getInitialValue();&#xd;
+    		continue;&#xd;
+    	}&#xd;
+    	&#xd;
+    	filter += &quot;(&quot;;&#xd;
+    	&#xd;
+    	if (fieldName == &quot;RMSFILTER&quot;)&#xd;
+		{&#xd;
+    		filter += con.getInitialValue();&#xd;
+		}&#xd;
+    	else&#xd;
+		{&#xd;
+    		if (con.getInitialValue() == con.getFinalValue() || isEmpty(con.getFinalValue()))&#xd;
+			{&#xd;
+				filter += con.getFieldName();&#xd;
+				var isLike = false;&#xd;
+				switch(con.getConstraintType())&#xd;
+				{&#xd;
+					case ConstraintType.MUST:&#xd;
+						filter += &quot; = &quot;;&#xd;
+					break;&#xd;
+					case ConstraintType.MUST_NOT:&#xd;
+						filter += &quot; = &quot;;&#xd;
+					break;&#xd;
+					case ConstraintType.SHOULD:&#xd;
+						filter += &quot; LIKE &quot;;&#xd;
+						isLike = true;&#xd;
+					break;&#xd;
+					case ConstraintType.SHOULD_NOT:&#xd;
+						filter += &quot; NOT LIKE &quot;;&#xd;
+						isLike = true;&#xd;
+					break;&#xd;
+				}&#xd;
+				filter += getFormattedValue(con.getInitialValue(), isLike);&#xd;
+			}&#xd;
+    		else&#xd;
+			{&#xd;
+    			filter += con.getFieldName();&#xd;
+    			filter += &quot; BETWEEN &quot;;&#xd;
+    			filter += getFormattedValue(con.getInitialValue(), false);&#xd;
+    			filter += &quot; AND &quot;;&#xd;
+    			filter += getFormattedValue(con.getFinalValue(), false);&#xd;
+			}&#xd;
+		}&#xd;
+    	&#xd;
+		filter += &quot;) AND &quot;;&#xd;
+	}&#xd;
+    &#xd;
+    if (filter.length == 0)&#xd;
+    {&#xd;
+    	if(filterRequired){&#xd;
+    	  filter = &quot;1=1&quot;;&#xd;
+    	}&#xd;
+    	else{&#xd;
+      	  filter = &quot;1=1&quot;;&#xd;
+    	}&#xd;
+    }&#xd;
+    else&#xd;
+    	filter = filter.substring(0, filter.length-5);&#xd;
+    &#xd;
+    // guarda o filtro...&#xd;
+    result.filter = filter;&#xd;
+    &#xd;
+    // retorna o resultado...&#xd;
+    return result;&#xd;
+}&#xd;
+&#xd;
+function isEmpty(str) {&#xd;
+    return (!str || 0 === str.length);&#xd;
+}&#xd;
+&#xd;
+function getFormattedValue(value, isLike){&#xd;
+	if(isLike){&#xd;
+	  return &quot;&apos;%&quot; + value + &quot;%&apos;&quot;;&#xd;
+	}&#xd;
+	else{&#xd;
+	  return &quot;&apos;&quot; + value + &quot;&apos;&quot;;&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+&#xd;
+&#xd;
+function getXMLFromString(xmlString) {&#xd;
+	var factory = javax.xml.parsers.DocumentBuilderFactory.newInstance();&#xd;
+	var parser = factory.newDocumentBuilder();&#xd;
+	var is = new org.xml.sax.InputSource();&#xd;
+    is.setCharacterStream(new java.io.StringReader(xmlString));&#xd;
+	return parser.parse(is);&#xd;
+}&#xd;
+&#xd;
+ &#xd;
+ function abrirPesquisa(DATASET_ID, dataFields, resultFields, type, title){	&#xd;
+	window.open(&quot;/webdesk/zoom.jsp&quot; +&#xd;
+	&quot;?datasetId=&quot; +&#xd;
+	DATASET_ID +&#xd;
+	&quot;&amp;dataFields=&quot; +&#xd;
+	dataFields +&#xd;
+	&quot;&amp;resultFields=&quot; +&#xd;
+	resultFields +&#xd;
+	&quot;&amp;type=&quot; +&#xd;
+	type+&#xd;
+	&quot;&amp;title=&quot; +&#xd;
+	title 	&#xd;
+	, &quot;zoom&quot;, &quot;status,scroolbars=no,width=600,height=350,top=0,left=0&quot;);&#xd;
+}&#xd;
+&#xd;
+function checkIsPK(result, qtd){&#xd;
+	var lines = result.split(&apos;\r&apos;);&#xd;
+	&#xd;
+	if(lines.length == 1){&#xd;
+		var pk = result.split(&apos;;&apos;);&#xd;
+		if(pk.length == qtd)&#xd;
+			return;&#xd;
+	}&#xd;
+		throw result;&#xd;
+	&#xd;
+}&#xd;
+&#xd;
+ function ChekExist(result)&#xd;
+ {&#xd;
+	 var lines = result.split(&apos;\r&apos;);&#xd;
+	if(lines.length &gt; 1)&#xd;
+		return true&#xd;
+	else&#xd;
+		return false;&#xd;
+ }&#xd;
+ &#xd;
+&#xd;
+function replaceValue(text, columnName, newValue){&#xd;
+&#xd;
+	&#xd;
+	if ((newValue != null) &amp;&amp; (newValue.trim() != &quot;&quot;))&#xd;
+	{&#xd;
+		var regex = new RegExp(&quot;&lt;&quot; + columnName + &quot;&gt;(.*?)&lt;\\/&quot; + columnName + &quot;&gt;&quot;, &quot;g&quot;);&#xd;
+		var replaceText = &quot;&lt;&quot; + columnName + &quot;&gt;&quot; + newValue + &quot;&lt;/&quot; + columnName + &quot;&gt;&quot;;&#xd;
+		&#xd;
+		return text.replace(regex, replaceText);&#xd;
+	}&#xd;
+	else&#xd;
+		return text;&#xd;
+}&#xd;
+&#xd;
+&#xd;
+function isEmpty(str) {&#xd;
+    return (!str || 0 === str.length);&#xd;
+}&#xd;
+</eventDescription>
+    </WorkflowProcessEvent>
+  </list>
+  <list/>
+  <list>
+    <SwimLane>
+      <color>FFFFFF</color>
+      <height>290</height>
+      <width>831</width>
+      <positionX>10</positionX>
+      <positionY>10</positionY>
+      <stateName>Pool</stateName>
+      <type>1</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <sequence>1</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>9F9F9F</color>
+      <height>145</height>
+      <width>801</width>
+      <positionX>40</positionX>
+      <positionY>10</positionY>
+      <stateName>Solicitante</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <sequence>2</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>C0C0C0</color>
+      <height>145</height>
+      <width>801</width>
+      <positionX>40</positionX>
+      <positionY>155</positionY>
+      <stateName>Aprovador</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <sequence>3</sequence>
+      </swimLanePK>
+    </SwimLane>
+  </list>
+  <list>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>210</positionX>
+      <positionY>20</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <componGrafSequence>7</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Start</stateName>
+    </ProcessComponGraf>
+  </list>
+  <list>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>1</version>
+        <linkSequence>8</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>7</initialStateSequence>
+      <finalStateSequence>4</finalStateSequence>
+    </ProcessLinkAssoc>
+  </list>
+  <list>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <version>4</version>
+        <linkSequence>8</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>167</positionX>
+      <positionY>48</positionY>
+    </ProcessLinkBend>
+  </list>
+  <list/>
+  <list/>
+  <list>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <fieldId>nm_cidade</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>Cidade</fieldDescription>
+      <slotId>1</slotId>
+    </ProcessFormField>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>agendamento_reuniao_01</processId>
+        <fieldId>nm_sala</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>Sala</fieldDescription>
+      <slotId>2</slotId>
+    </ProcessFormField>
+  </list>
+  <list>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>agendamento_reuniao_01</processId>
+      <version>1</version>
+      <sequence>14</sequence>
+      <attempts>0</attempts>
+      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+  </list>
+  <list/>
+  <list/>
+  <list/>
+  <list>
+    <ConditionProcessAutomaticRules>
+      <sequence>9</sequence>
+      <expressionOrder>1</expressionOrder>
+      <ruleOrder>1</ruleOrder>
+      <field>ds_aprovacao</field>
+      <value>aprovado</value>
+      <operator>1</operator>
+      <valueType>1</valueType>
+    </ConditionProcessAutomaticRules>
+    <ConditionProcessAutomaticRules>
+      <sequence>9</sequence>
+      <expressionOrder>2</expressionOrder>
+      <ruleOrder>1</ruleOrder>
+      <field>ds_aprovacao</field>
+      <value>reprovado</value>
+      <operator>1</operator>
+      <valueType>1</valueType>
+    </ConditionProcessAutomaticRules>
+  </list>
+</list>
