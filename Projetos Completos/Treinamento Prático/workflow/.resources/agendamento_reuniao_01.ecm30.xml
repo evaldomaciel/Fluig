@@ -31,7 +31,7 @@
       <version>4</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
-    <formId>463</formId>
+    <formId>4668</formId>
     <editionMode>true</editionMode>
     <updateAttachmentsVersion>false</updateAttachmentsVersion>
     <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
@@ -492,6 +492,8 @@
 
 
 		var result = new String(authService.saveRecord(NOME_DATASERVER, text, context));
+
+		log.dir(result);
 
 		// se retornou a chave, salvou ok...  
 		checkIsPK(result, 1);
