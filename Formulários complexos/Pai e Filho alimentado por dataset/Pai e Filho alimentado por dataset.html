@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<script type="text/javascript" src="custom.js"></script>
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+			<input type="hidden" name="documento" />
+			<div class="container-fluid">
+				<div class="panel panel-default">
+					<div class="panel-heading">Pai e filho alimentado por dataset</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-12 form-group">
+								<table tablename="tabelaDeUsuarios" class="table table-striped table-bordered" cellspacing="0"  noaddbutton="true" nodeletebutton="true">
+									<thead>
+										<tr>
+											<td><b>ID</b></td>
+											<td><b>Nome</b></td>
+											<td><b>E-amil</b></td>
+										</tr>
+									</thead>
+									<tr>
+										<td><input class="form-control" type="text" name="idUser" /></td>
+										<td><input class="form-control" type="text" name="nome" /></td>
+										<td><input class="form-control" type="text" name="email" /></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>
