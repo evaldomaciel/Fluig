@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.workflow.ecm.technology.totvs.com/">
+	<soapenv:Header />
+	<soapenv:Body>
+		<ws:startProcess>
+			<username>usuario_publico</username>
+			<password>asdf1234</password>
+			<companyId>2</companyId>
+			<processId>agendamento_reuniao_01</processId>
+			<choosedState>0</choosedState>
+			<colleagueIds>
+				<item>usuario_publico</item>
+			</colleagueIds>
+			<comments>Processo iniciado via Widget</comments>
+			<userId>usuario_publico</userId>
+			<completeTask>true</completeTask>
+			<attachments name="attachments"></attachments>
+			<cardData>
+				<item>
+					<item>ds_solicitante</item>
+					<item name="ds_solicitante"></item> 
+				</item>
+				<item>
+					<item>ds_agendamento</item>
+					<item name="ds_agendamento"></item> 
+				</item>
+				<item>
+					<item>dt_agendamento</item>
+					<item name="dt_agendamento"></item> 
+				</item>
+				<item>
+					<item>nm_sala</item>
+					<item name="nm_sala"></item> 
+				</item>
+				<item>
+					<item>ds_periodo</item>
+					<item name="ds_periodo"></item> 
+				</item>
+			</cardData>
+			<appointment></appointment>
+			<managerMode>false</managerMode>
+		</ws:startProcess>
+	</soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,184 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+body{
+    background: -webkit-linear-gradient(left, #d11c10, #c11e1f);
+}
+
+#wcm-content{
+  background:transparent !important;
+  padding: 1% !important;
+}
+
+.logo{
+	height: 31px;
+    width: 205px;
+    background: url(../images/logo.png) no-repeat;
+    display: inline-block;
+    text-indent: -99999px;
+}
+
+.required{
+	font-size: 14px;
+	color:#d11c10;
+	font-weight: bold;	
+}
+
+.backgborder{	
+    margin: 2% !important;
+    border-radius: 0.5rem !important;
+    background: #fff !important;
+
+}
+
+.backgborder-content{
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: hidden;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p.text-footer{
+	font-size: 10px;
+	color:#777;
+	font-weight: bold;
+}
+	
+.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+}
+
+.tabcontent {
+	padding: 6px 12px;
+	border: none;
+	border-top: none;
+}
+
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+}
+
+.tab button:hover {
+	background-color: #ddd;
+}
+
+.tab .active {
+	background-color: #ccc;
+}
+
+ 
+.btn-attach-input {
+    position: relative;
+	overflow: hidden;
+	margin: 0px;    
+	font-size: 30px !important;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+    padding: 6px 12px;
+}
+
+
+.btn-attach-input-title {
+    margin-left:2px;
+}
+ 
+
+.btn-attach-input input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+/* tabela de anexos*/
+.panel, table, thead, tr, th, td{
+	border: none !important;
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+	vertical-align: middle;
+}
+th{
+	position: absolute;
+}
+
+@media (max-width: 992px) {
+
+	.backgborder{
+	    min-height: 100% !important;
+	    flex-wrap: wrap !important;
+	    align-items: center !important;
+	}
+	
+	.required{
+	font-size: 30px;
+	color:#d11c10;
+	font-weight: bold;	
+}
+	
+	.form-input{
+		margin-top: 45px !important;
+	}
+	
+	.label-input {
+	  font-size: 30px;
+	  color: #393939;
+	  line-height: 1.5;
+	  text-transform: uppercase;
+	}
+	
+	input[type='text']{
+	  display: block !important;
+	  width: 100% !important;
+	  border: none !important;
+	  font-size: 35px !important;
+	  color: #555555 !important;
+	  line-height: 1.2 !important;
+	  padding-right: 18px !important;
+	}
+	
+
+	.tbody-table, [data-registrarOcorrencia]{
+	    font-size: 30px !important;
+	}
+	
+	.flaticon-trash{
+		font-size: 18px !important;
+	    line-height: 1.3333333 !important;
+	    padding: 10px 16px !important;
+	    border-radius: 4px !important;
+    }   
+}
