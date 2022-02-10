@@ -21,8 +21,8 @@ function createDataset(fields, constraints, sortFields) {
 	var id_produto;
 	var id_imagem;
 
-	var usuarioFluig = "evaldo"; // String(getValue("WKUser"));
-	var senhaFluig = "c88271204*";
+	var usuarioFluig = "usuarioFluig"; // String(getValue("WKUser"));
+	var senhaFluig = "senhaFluig";
 	var companyId = String(getValue("WKCompany"));
 
 	var usuarioRM = "mestre";
