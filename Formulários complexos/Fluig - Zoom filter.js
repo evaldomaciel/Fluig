@@ -116,3 +116,5 @@ function removedZoomItem(removedItem) {
 		reloadZoomFilterValues(tpsolicitacao, "codSolicitacao," +codSolicitacao[0].trim()+","+"codSistemaCategoria," + codSistemaCategoria[0].trim() +","+"codTipoAplicacao," + codTipoAplicacao[0].trim());
 	}
 }
+
+/** Vamos a um teste de salvamento! */
